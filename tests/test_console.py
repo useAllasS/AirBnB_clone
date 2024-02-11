@@ -86,7 +86,8 @@ class TestHBNBCommand_help(unittest.TestCase):
     def test_help_update(self):
         h = (
             "Updates an instance by adding or updating attribute\n"
-            'Usage: update <class name> <id> <attribute name> "<attribute value>"'
+            'Usage: update <class name> <id> <attribute name> '
+            '"<attribute value>"'
         )
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help update"))
@@ -119,7 +120,8 @@ class ConsoleTestCase(unittest.TestCase):
                 self.assertCountEqual(expected, f.getvalue().strip())
 
         """ class doesn't exist """
-        class_dont_exist = ["create x", "update x", "show x", "destroy x", "all x"]
+        class_dont_exist = [
+                "create x", "update x", "show x", "destroy x", "all x"]
 
         for cmd in class_dont_exist:
             # print(f"class doesn't exist : {cmd}")
