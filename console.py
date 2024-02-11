@@ -7,10 +7,10 @@ import re
 import json
 
 
-class AirBnb(cmd.Cmd):
+class HBNBCommand(cmd.Cmd):
 
 
-    prompt = "(airbnb) "
+    prompt = "(hbnb) "
 
     def default(self, line):
 
@@ -206,4 +206,4 @@ class AirBnb(cmd.Cmd):
 
 
 if __name__ == '__main__':
-    AirBnb().cmdloop()
+    HBNBCommand().cmdloop()
