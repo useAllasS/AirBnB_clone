@@ -13,6 +13,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.review import Review
 
+
 class TestHBNBCommand_prompt(unittest.TestCase):
     """testing prompting of the HBNB command interpreter."""
 
@@ -23,6 +24,7 @@ class TestHBNBCommand_prompt(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd(""))
             self.assertEqual("", output.getvalue().strip())
+
 
 class TestHBNBCommand_help(unittest.TestCase):
     """testing help messages of the HBNB command interpreter."""
@@ -46,7 +48,7 @@ class TestHBNBCommand_help(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help EOF"))
             self.assertEqual(msg, output.getvalue().strip())
-    
+ 
     def test_help_create(self):
         msg =("Creates a new instance :\n"
              "Usage: create <class name>")
@@ -79,10 +81,11 @@ class TestHBNBCommand_help(unittest.TestCase):
 
     def test_help_update(self):
         h = ("Updates an instance by adding or updating attribute\n"
-             "Usage: update <class name> <id> <attribute name> \"<attribute value>\"")
+        "Usage: update <class name> <id> <attribute name> \"<attribute value>\"")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help update"))
             self.assertEqual(h, output.getvalue().strip())
+
 
 class ConsoleTestCase(unittest.TestCase):
     """testing errors"""
@@ -100,7 +103,7 @@ class ConsoleTestCase(unittest.TestCase):
         cmd_classname = ["create", "update", "show", "destroy"]
         cmd_id = ["update", "show", "destroy"]
         cmd_attr = ["update"]
-        
+  
         """ class name missing """
         for cmd in cmd_classname:
             # print(f"class name missing : {cmd}")
@@ -201,6 +204,7 @@ class ConsoleTestCase(unittest.TestCase):
                     expected = "** value missing **"
                     HBNBCommand().onecmd(f"{cmd} {clas} {id_dict[clas]} name")
                     self.assertCountEqual(expected, f.getvalue().strip())
+
 
 if __name__ == '__main__':
     unittest.main()
