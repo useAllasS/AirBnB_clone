@@ -10,7 +10,7 @@ import json
 class AirBnb(cmd.Cmd):
 
 
-    prompt = "(airbnb) "
+    prompt = "(hbnb) "
 
     def default(self, line):
 
