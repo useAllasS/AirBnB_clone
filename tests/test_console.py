@@ -4,6 +4,7 @@ from unittest.mock import patch
 from io import StringIO
 from console import HBNBCommand
 import json
+from models import storage
 from models.base_model import BaseModel
 from models.user import User
 from models.place import Place
